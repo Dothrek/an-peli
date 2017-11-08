@@ -1,8 +1,13 @@
 <ul>
-  <li *ngFor="let peli of pelis">
-    <span><strong>Titulo:</strong> {{ peli.titulo }}, </span>
-    <span><strong>Imagen:</strong> {{ peli.imagen }}, </span>
-    <span><strong>Descripcion:</strong> {{ peli.descripcion }} </span>
-    <span><strong>Actores:</strong> {{ peli.actores }} </span>
+  <li class="ficha" *ngFor="let peli of pelis">
+    <div><strong>Titulo:</strong> {{ peli.titulo }}, </div>
+    <div><strong>Imagen:</strong> {{ peli.imagen }}, </div>
+    <div><strong>Descripcion:</strong> {{ peli.descripcion }} </div>
+    <div class="actor-list">
+      <div class="actor-list-title">Actores:</div>
+      <div class="actor-name" *ngFor="let actor of peli.actores">
+        {{ actor }}
+      </div>
+    </div>
   </li>
 </ul>
