@@ -1,4 +1,4 @@
-<ul *ngIf="no_error">
+<ul *ngIf="!no_error">
   <li class="ficha" *ngFor="let peli of pelisjson">
     <div><strong>Titulo:</strong> {{ peli.titulo }}, </div>
     <div><strong>Imagen:</strong> {{ peli.imagen }}, </div>
@@ -6,7 +6,7 @@
     <div class="actor-list">
       <div class="actor-list-title">Actores:</div>
       <div class="actor-name" *ngFor="let actor of peli.actores">
-        <a routerLink="/DetalleActor">{{ actor.nombre }}</a>
+        <a routerLink="/detalleActor">{{ actor.nombre }}</a>
       </div>
     </div>
   </li>

@@ -13,6 +13,7 @@ import { Peli } from './peli';
 })
 
 export class ListaPelisComponent implements OnInit {
+  no_error : true;
   pelisjson : Peli[];
 
 constructor(private http: HttpClient) {}
@@ -21,8 +22,10 @@ constructor(private http: HttpClient) {}
 
     this.http.get('http://127.0.0.1:8000/gestorPeliculas/pelis')
       .toPromise()
-      .then((response : api_response) =>
+      .then((response : api_response) => {
         this.pelisjson = response.data;
+        this.no_error = response.err;
+        console.log(this.no_error)
       })
       .catch(error => {
       });
