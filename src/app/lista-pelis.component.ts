@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { api_response } from './api_response';
+
+import 'rxjs/add/operator/topromise';
 
 import { Peli } from './peli';
-
-const PELIS: Peli[] = [
-  { titulo: 'Dimitri', imagen: 'No hay', descripcion: 'Tampoco hay', actores: ['pepe'] },
-  { titulo: 'Paskade', imagen: 'Puede', descripcion: 'AQUI NO', actores: ['pepe'] },
-  { titulo: 'Midsdfas', imagen: 'Ni de coña', descripcion: 'Aqui si', actores: ['pepe'] },
-  { titulo: 'Ahkljsdf', imagen: 'Sigue intentando', descripcion: 'Aqui si', actores: ['pepe', 'laura', 'jose'] }
-]
 
 @Component({
   selector: 'ListaPelis',
@@ -15,7 +12,19 @@ const PELIS: Peli[] = [
   styleUrls: []
 })
 
-export class ListaPelisComponent {
-  pelis = PELIS;
-  peliElegida: Peli;
+export class ListaPelisComponent implements OnInit {
+  pelisjson : Peli[];
+
+constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {
+
+    this.http.get('http://127.0.0.1:8000/gestorPeliculas/pelis')
+      .toPromise()
+      .then((response : api_response) =>
+        this.pelisjson = response.data;
+      })
+      .catch(error => {
+      });
+  }
 }
