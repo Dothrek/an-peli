@@ -1,32 +1,41 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { api_response } from '../modelos/api_response';
+
+import { PeliculasService } from '../services/peliculas.service';
 
 import 'rxjs/add/operator/topromise';
 
 import { Peli } from '../modelos/peli';
 
 @Component({
-  selector: 'ListaPelis',
+  selector: 'app-lista-pelis',
   templateUrl: './lista-pelis.component.html',
   styleUrls: []
 })
 
 export class ListaPelisComponent implements OnInit {
-  no_error : true;
+  no_error : boolean = true;
   pelisjson : Peli[];
 
-constructor(private http: HttpClient) {}
+constructor(
+  private http: HttpClient,
+  private PelisSrv: PeliculasService
+) {}
 
   ngOnInit(): void {
+    this.getPeliculas();
+  }
 
-    this.http.get('http://127.0.0.1:8000/gestorPeliculas/pelis')
-      .toPromise()
-      .then((response : api_response) => {
-        this.pelisjson = response.data;
-        this.no_error = response.err;
+  getPeliculas() {
+    this.PelisSrv.getPeliculas()
+      .then((response : Peli[]) => {
+        this.pelisjson = response;
+        this.no_error = false;
       })
       .catch(error => {
-      });
+        console.log(error);
+        this.no_error = false;
+        this.pelisjson = [];
+      })
   }
 }

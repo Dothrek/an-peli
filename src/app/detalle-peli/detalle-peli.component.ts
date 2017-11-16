@@ -29,8 +29,10 @@ export class DetallePeliComponent implements OnInit {
     this.http.get('http://127.0.0.1:8000/gestorPeliculas/pelis')
     .toPromise()
     .then((response: api_response) => {
-      this.pelijson = response.data[id-3];
-      this.no_error = response.err;
+      console.log(response.data)
+      console.log(response.data[id-3])
+      // this.pelijson = response.data[id-3];
+      // this.no_error = response.err;
     })
     .catch(error =>{
     });

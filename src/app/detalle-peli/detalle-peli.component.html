@@ -1,12 +1,14 @@
 <ul *ngIf="!no_error">
-  <li class="ficha">
+  <li class="ficha" *ngIf="pelisjson">
     <div><strong><h2>Detalles de {{ pelijson.titulo }}</h2></strong></div>
     <div><strong>Titulo: </strong>{{ pelijson.titulo }}</div>
     <div><strong>Descripcion: </strong>{{ pelijson.descripcion }}</div>
     <div><strong>Imagen: </strong>{{ pelijson.imagen }}</div>
     <div class="actor-list-title">Actores:</div>
     <div class="actor-name" *ngFor="let actor of pelijson.actores">
-      <a routerLink="/DetalleActor/{{ actor.id }}">{{ actor.nombre }}</a>
+      <a routerLink="['/DetalleActor', actor.id]">{{ actor.nombre }}</a>
     </div>
   </li>
 </ul>
+
+<button type="button" name="button" [routerLink]="['/ListaPelis']">Volver</button>
