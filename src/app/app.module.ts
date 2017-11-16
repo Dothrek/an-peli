@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { ListaPelisComponent } from './lista-peliculas/lista-pelis.component';
 import { ListaActoresComponent } from './lista-actores/lista-actores.component';
 import { DetallePeliComponent } from './detalle-peli/detalle-peli.component';
+import { DetalleActorComponent } from './detalle-actor/detalle-actor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListaPelisComponent,
     ListaActoresComponent,
-    DetallePeliComponent
+    DetallePeliComponent,
+    DetalleActorComponent
   ],
   imports: [
     BrowserModule,

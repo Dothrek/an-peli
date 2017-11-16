@@ -1,0 +1,12 @@
+<ul *ngIf="!no_error">
+  <li class="ficha">
+    <div><strong><h2>Detalles de {{ actorjson.nombre }}</h2></strong></div>
+    <div><strong>Nombre: </strong>{{ actorjson.nombre }}</div>
+    <div><strong>Fecha de Nacimiento: </strong>{{ actorjson.fecha_nac }}</div>
+    <div><strong>Foto: </strong>{{ actorjson.foto }}</div>
+    <div class="actor-list-title">Peliculas:</div>
+    <div class="actor-name" *ngFor="let peli of actorjson.peliculas">
+      <a routerLink="/DetallePeli/{{ peli.id }}">{{ peli.titulo }}</a>
+    </div>
+  </li>
+</ul>

@@ -5,7 +5,7 @@
     <div><strong>Descripcion:</strong> {{ peli.descripcion }} </div>
     <div class="actor-list-title">Actores:</div>
       <div class="actor-name" *ngFor="let actor of peli.actores">
-        <a routerLink="/detalleActor">{{ actor.nombre }}</a>
+        <a routerLink="/DetalleActor/{{ actor.id }}">{{ actor.nombre }}</a>
       </div>
   </li>
 </ul>
