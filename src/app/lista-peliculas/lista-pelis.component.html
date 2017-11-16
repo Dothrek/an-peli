@@ -3,11 +3,9 @@
     <div><strong>Titulo:</strong> {{ peli.titulo }}, </div>
     <div><strong>Imagen:</strong> {{ peli.imagen }}, </div>
     <div><strong>Descripcion:</strong> {{ peli.descripcion }} </div>
-    <div class="actor-list">
-      <div class="actor-list-title">Actores:</div>
+    <div class="actor-list-title">Actores:</div>
       <div class="actor-name" *ngFor="let actor of peli.actores">
         <a routerLink="/detalleActor">{{ actor.nombre }}</a>
       </div>
-    </div>
   </li>
 </ul>

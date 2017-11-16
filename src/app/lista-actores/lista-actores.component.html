@@ -1,3 +1,11 @@
-<p>
-  lista-actores works!
-</p>
+<ul *ngIf="!hay_error">
+  <li class="ficha" *ngFor="let actor of actorjson">
+    <div><strong>Nombre:</strong> {{ actor.nombre }}</div>
+    <div><strong>Fecha de Nacimiento:</strong> {{ actor.fecha_nac }}</div>
+    <div><strong>Foto:</strong> {{ actor.foto }}</div>
+      <div class="pelicula-list-title">Peliculas:</div>
+      <div class="pelicula-name" *ngFor="let pelicula of actor.peliculas">
+        <a routerLink="/detallePelicula">{{ pelicula.titulo }}</a>
+      </div>
+  </li>
+</ul>

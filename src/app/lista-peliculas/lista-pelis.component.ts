@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { api_response } from './api_response';
+import { api_response } from '../modelos/api_response';
 
 import 'rxjs/add/operator/topromise';
 
-import { Peli } from './peli';
+import { Peli } from '../modelos/peli';
 
 @Component({
   selector: 'ListaPelis',
@@ -25,7 +25,6 @@ constructor(private http: HttpClient) {}
       .then((response : api_response) => {
         this.pelisjson = response.data;
         this.no_error = response.err;
-        console.log(this.no_error)
       })
       .catch(error => {
       });

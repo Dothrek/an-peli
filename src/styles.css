@@ -1,11 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
 .ficha {
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 
-.actor-list {
-  /*margin: 4px;*/
+.negrita {
+  font-weight: bold;
 }
 
 .actor-list-title {
@@ -13,5 +13,13 @@
 }
 
 .actor-name {
+  margin-left: 10px;
+}
+
+.pelicula-list-title {
+  font-weight: bold;
+}
+
+.pelicula-name {
   margin-left: 10px;
 }
