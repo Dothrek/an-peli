@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { PeliculasService } from './services/peliculas.service';
+import { ActoresService } from './services/actores.service';
 
 import { AppComponent } from './app.component';
 import { ListaPelisComponent } from './lista-peliculas/lista-pelis.component';
@@ -26,7 +27,8 @@ import { DetalleActorComponent } from './detalle-actor/detalle-actor.component';
     HttpClientModule
   ],
   providers: [
-    PeliculasService
+    PeliculasService,
+    ActoresService
   ],
   bootstrap: [AppComponent]
 })
