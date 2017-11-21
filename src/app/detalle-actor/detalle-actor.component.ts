@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
+import { ActoresService } from '../services/actores.service';
+
 import { Actor } from '../modelos/actor';
 import { api_response } from '../modelos/api_response';
 
@@ -13,27 +15,28 @@ import { api_response } from '../modelos/api_response';
 export class DetalleActorComponent implements OnInit {
 
   actorjson: Actor[];
-  no_error: true;
+  no_error: boolean = true;
 
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
+    private Actorsrv: ActoresService
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getActor();
   }
 
-  getActor(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.http.get('http://127.0.0.1:8000/gestorPeliculas/actores')
-    .toPromise()
-    .then((response: api_response) => {
-      this.actorjson = response.data[id-4];
-      this.no_error = response.err;
-    })
-    .catch(error =>{
-    });
+  getActor() {
+    // this.Actorsrv.getActor()
+    // .then((response : Actor[]) => {
+    //   this.actorjson = response;
+    //   this.no_error = false;
+    // })
+    // .catch(error => {
+    //   this.no_error =false;
+    //   this.actorjson = [];
+    // })
   }
 
 }

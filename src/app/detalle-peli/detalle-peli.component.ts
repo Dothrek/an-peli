@@ -13,7 +13,7 @@ import { api_response } from '../modelos/api_response';
 export class DetallePeliComponent implements OnInit {
 
   pelijson: Peli[];
-  no_error: true;
+  no_error: boolean = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,6 +29,9 @@ export class DetallePeliComponent implements OnInit {
     this.http.get('http://127.0.0.1:8000/gestorPeliculas/pelis')
     .toPromise()
     .then((response: api_response) => {
+      console.log(response.data[id-3]);
+      this.pelijson = response.data[id-3];
+      this.no_error = false;
     })
     .catch(error =>{
     });
