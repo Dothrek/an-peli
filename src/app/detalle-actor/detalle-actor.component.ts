@@ -28,15 +28,17 @@ export class DetalleActorComponent implements OnInit {
   }
 
   getActor() {
-    // this.Actorsrv.getActor()
-    // .then((response : Actor[]) => {
-    //   this.actorjson = response;
-    //   this.no_error = false;
-    // })
-    // .catch(error => {
-    //   this.no_error =false;
-    //   this.actorjson = [];
-    // })
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.Actorsrv.getActor(id)
+    .then((response : Actor[]) => {
+      this.actorjson = response;
+      console.log(this.actorjson);
+      this.no_error = false;
+    })
+    .catch(error => {
+      this.no_error =false;
+      this.actorjson = [];
+    })
   }
 
 }

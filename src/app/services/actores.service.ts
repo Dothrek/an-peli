@@ -36,19 +36,20 @@ export class ActoresService {
     })
   }
 
-  // getActor(id) {
-  //   return new Promise((resolve, reject) => {
-  //
-  //     this.http.get('http://127.0.0.1:8000/gestorPeliculas/actor/'id)
-  //     .toPromise()
-  //     .then((response: api_response) => {
-  //       this.actor = response.data;
-  //       return resolve(response.data);
-  //     })
-  //     .catch(error => {
-  //       return reject(error);
-  //     });
-  //   })
-  // }
+  getActor(id: number) {
+    return new Promise((resolve, reject) => {
+
+      this.http.get('http://127.0.0.1:8000/gestorPeliculas/actor/'+id.toString())
+      .toPromise()
+      .then((response: api_response) => {
+        this.actor = response.data;
+        console.log(this.actor);
+        return resolve(response.data);
+      })
+      .catch(error => {
+        return reject(error);
+      });
+    })
+  }
 
 }
